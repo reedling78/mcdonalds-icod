@@ -1,0 +1,43 @@
+.imgs {
+	width: 100%;
+	height: auto;
+}
+.padding-off {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+.layer-float {
+	position: absolute !important;
+}
+.layer-static {
+	position: relative !important;
+}
+.layer-fixed {
+	position: fixed;
+}
+body {
+	overflow: hidden;
+	width: 1080px;
+	height: 1920px;
+	font-family: lovin;
+}
+#box-main {
+	overflow: hidden;
+	width: 1080px;
+	height: 1920px;
+}
+#box-slides {
+	overflow: hidden;
+	width: 1080px;
+	height: 372px;
+	background-color: #fff;
+}
+#box-menu {
+	overflow: hidden;
+	width: 1080px;
+	height: 1176px;
+}
+.slide {
+	width: 1080px;
+	height: 372px;
+}

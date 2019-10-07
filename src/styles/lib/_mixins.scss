@@ -1,0 +1,119 @@
+@mixin floatingEl($width, $float, $display, $height) {
+	width: $width;
+	float: $float;
+	display: $display;
+	height: $height;
+}
+
+@mixin font($color, $fontSize, $spacing, $textAlign, $margin) {
+	color: $color;
+	font-size: $fontSize;
+	letter-spacing: $spacing;
+	text-align: $textAlign;
+	margin: $margin;
+}
+
+@mixin flex($justifyContent, $alignItems) {
+	clear: both;
+	display: flex;
+	align-items: $alignItems;
+	justify-content: $justifyContent;
+}
+
+@mixin box($width, $height) {
+	width: $width;
+	height: $height;
+}
+
+@mixin position($position, $args) {
+	@each $o in top right bottom left {
+		$i: index($args, $o);
+		@if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number
+		{
+			#{$o}: nth($args, $i + 1);
+		}
+	}
+	position: $position;
+}
+
+// Positioning helpers
+@mixin absolute($args: "") {
+	@include position(absolute, $args);
+}
+
+@mixin fixed($args: "") {
+	@include position(fixed, $args);
+}
+
+@mixin relative($args: "") {
+	@include position(relative, $args);
+}
+
+/* shadow boxing */
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+	@if $inset {
+		-webkit-box-shadow: inset $top $left $blur $color;
+		-moz-box-shadow: inset $top $left $blur $color;
+		box-shadow: inset $top $left $blur $color;
+	} @else {
+		-webkit-box-shadow: $top $left $blur $color;
+		-moz-box-shadow: $top $left $blur $color;
+		box-shadow: $top $left $blur $color;
+	}
+}
+
+@mixin totalCost() {
+	float: right;
+	display: inline;
+	font-size: 40px;
+	font-family: museo_sans900;
+	color: #fff;
+	margin-top: 53px;
+}
+
+@mixin confirmOrderItem($color, $fontSize) {
+	color: $color;
+	font-family: museo_slab500;
+	text-align: center;
+	font-size: $fontSize;
+}
+
+@mixin animation($delay, $duration, $animation) {
+	-webkit-animation-delay: $delay;
+	-webkit-animation-duration: $duration;
+	-webkit-animation-name: $animation;
+	-webkit-animation-fill-mode: forwards;
+
+	-moz-animation-delay: $delay;
+	-moz-animation-duration: $duration;
+	-moz-animation-name: $animation;
+	-moz-animation-fill-mode: forwards;
+
+	-o-animation-delay: $delay;
+	-o-animation-duration: $duration;
+	-o-animation-name: $animation;
+	-o-animation-fill-mode: forwards;
+
+	animation-delay: $delay;
+	animation-duration: $duration;
+	animation-name: $animation;
+	animation-fill-mode: forwards;
+}
+
+@mixin keyframeAnimation($animation_name) {
+	@-webkit-keyframes #{$animation_name} {
+		@content;
+	}
+
+	@-moz-keyframes #{$animation_name} {
+		@content;
+	}
+
+	@-o-keyframes #{$animation_name} {
+		@content;
+	}
+
+	@keyframes #{$animation_name} {
+		@content;
+	}
+}

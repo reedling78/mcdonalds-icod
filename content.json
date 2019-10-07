@@ -1,0 +1,3 @@
+{
+    "datasources":["ds1.csv", "ds2.csv"]
+}
